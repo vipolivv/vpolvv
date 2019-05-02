@@ -1,0 +1,762 @@
+# To find out some warning information, type info, to find what I do, ask.
+#HAVE FUN, AND COME BACK SOON!
+#Currently 729 lines of code!
+
+info = "To do calculations, leave a space between the numbers and operators.\nType skills to find out what I can do.\n"
+
+import random, sys, time, datetime, pytz, replit
+from termcolor import cprint as cp
+from termcolor import colored
+global typeSpeed
+
+typeSpeed = 0.12
+a = False
+
+def printa(string, speed = typeSpeed):
+  #conversationsTXT.write('\tBuddy: '+string)
+  for char in string:
+    time.sleep(speed)
+    sys.stdout.write(char)
+    sys.stdout.flush()
+  print('\n')
+
+def clear():
+  replit.clear()
+
+cp('Enter replit username (No "@")', "yellow", attrs=["blink"])
+username = input()
+f = open('PRIVATE/USERS/list.txt', 'a')
+f.write('\n' + username)
+f.close()
+clear()
+
+def banner():
+  bannerSpeed = .00455
+  RESET = "\033[0;0m"
+  RED = "\033[1;31m"
+  BUDDYbanner1 = "    ,---,. \n"
+  BUDDYbanner2 = "  ,'  .'  \                   ,---,      ,---, \n"
+  BUDDYbanner3 = ",---.' .' |         ,--,    ,---.'|    ,---.'| \n"
+  BUDDYbanner4 = "|   |  |: |       ,'_ /|    |   | :    |   | : \n"
+  BUDDYbanner5 = ":   :  :  /  .--. |  | :    |   | |    |   | |     .--,  \n"
+  BUDDYbanner6 = ":   |    ; ,'_ /| :  . |  ,--.__| |  ,--.__| |   /_ ./|  \n"
+  BUDDYbanner7 = "|   :     \|  ' | |  . . /   ,'   | /   ,'   |, ' , ' :  \n"
+  BUDDYbanner8 = "|   |   . ||  | ' |  | |.   '  /  |.   '  /  /___/ \: | \n"
+  BUDDYbanner9 = "'   :  '; |:  | : ;  ; |'   ; |:  |'   ; |:  |.  \  ' | \n"
+  BUDDYbanner10 = "|   |  | ; '  :  `--'   \   | '/  '|   | '/  ' \  ;   : \n"
+  BUDDYbanner11 = "|   :   /  :  ,      .-./   :    :||   :    :|  \  \  ; \n"
+  BUDDYbanner12 = "|   | ,'    `--`----'    \   \  /   \   \  /     :  \  \  \n"
+  BUDDYbanner13 = "`----'                    `----'     `----'       \  ' ; \n"
+  for char in BUDDYbanner1:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner2:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner3:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner4:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner5:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner6:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner7:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner8:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner9:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner10:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner11:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner12:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+  for char in BUDDYbanner13:
+    time.sleep(bannerSpeed)
+    sys.stdout.write(RED)
+    print(char, end="")
+    sys.stdout.flush()
+  sys.stdout.write(RESET)
+
+banner()
+
+
+
+def sayHello():
+  greetings = [
+    'Hello, human.', 
+    'Greetings, non-robot.', 
+    'Hello, non-robot.', 
+    'Greetings, human.', 
+    'Salutations, my fellow human!', 
+    'Salutations, my fellow non-robot!', 
+    'Welcome, non-robot!', 
+    'Welcome, human!',
+    'Hi, human!',
+    'Hi, non-robot!',
+    'Welcome, living-being!',
+    'Hello, living-being!',
+    'Hi, living-being!',
+    'Greetings, living-being!',
+    'Salutations, my fellow living-being!',
+    'Good to see you, human!',
+    'Good to see you, non-robot!',
+    'Good to see you living-being!'
+  ]
+  greeting = random.randint(0, 7)
+  printa(greetings[greeting])
+
+def getInput():
+  global info, a
+  print('\n')
+  Input = input('-> ')
+  if Input.lower() == "info":
+    a = True
+    print(info)
+  return Input
+
+def analyze(_input):
+  for _ in '~ ! @ # $ % ^ & * ( ) ` _ { } [ ] : ; " \' < > ? , . /'.split():
+    if _ in _input:
+      _input.replace(_, '')
+  a = False
+  quitWords = [
+    'bye', 
+    'stop', 
+    'leave', 
+    'have to go', 
+    'goodbye', 
+    'see you later', 
+    'see ya later', 
+    'byebye', 
+    'bye bye', 
+    'chow', 
+    'leaving', 
+    'gotta go',
+    'got to go',
+    'go get',
+    'see you',
+    'see ya',
+  ]
+  kI = "i "
+  kHI = [
+    'hi', 
+    'hello', 
+    'hi', 
+    'how do you do', 
+    'hey', 
+    'sup', 
+    'salutations', 
+    'greetings', 
+    "what's up", 
+    'howdy',
+  ]
+  kNAME = [
+    'my name', 
+    'i am called', 
+    'i am known as', 
+    'friends call me', 
+    'people call me'
+  ]
+  kDO = "do "
+  kPLAY = [
+    'play', 
+    'games', 
+    'bored',
+    'game'
+  ]
+  kCALC = [
+    'calculate', 
+    '+', 
+    '-', 
+    '/', 
+    'x', 
+    '*',
+    'math',
+    'solve'
+  ]
+  kYNAME = [
+    'your name', 
+    'are you'
+  ]
+  kTIME = [
+    'time', 
+    'day', 
+    'year', 
+    'minute',
+    'now',
+    'current',
+    'present',
+    'date'
+  ]
+  kSKILLS = [
+    'can you do', 
+    'skills', 
+    'power',
+    'coded to do',
+    'programmed to',
+    'made to',
+    'you do',
+    'power',
+    'options'
+  ]
+  kRIDDLES = [
+    'joke', 
+    'riddle', 
+    'jokes', 
+    'riddles', 
+    'funny',
+    'tell me'
+  ]
+  kLAUGH = [
+    'ha ha',
+    'funny',
+    'laugh',
+    'ha ha ha ha ha ha ha ha',
+    'hilarious',
+    'laughing'
+  ]
+  kSETTINGS = "settings"
+  kAVERAGE = "average"
+  kTHANKS = [
+    "thank you", 
+    "thanks", 
+    'amazing',
+    'you are really good'
+  ]
+  kCREATOR = [
+    'creator', 
+    'made you', 
+    'coded you', 
+    'programmed you', 
+    'created you',
+    'owns you'
+  ]
+  kLOCATION = [
+    'house', 
+    'live', 
+    'location', 
+    'weird time', 
+    'wrong time'
+  ]
+  kOTHER = [
+    'what', 
+    'wow', 
+    'really'
+  ]
+  kAGE = [
+    'age', 
+    'old', 
+    'years',
+    'young'
+  ]
+  kRRESPONSE = [
+    'Huh?', 
+    'Change the subject.', 
+    'Really?', 
+    'Good to know.', 
+    'Wow.', 
+    'Hmmmmm...', 
+    'Funny.', 
+    'I do not understand.', 
+    'Can repeat this in a different way?',
+    'Ok.',
+    'Ok.',
+    'Ok.',
+    'Ok.',
+    'Ok.',
+    'Ok.',
+    'Ok.',
+    'Ok.',
+    "I'm sorry?",
+  ]
+  kPIGLATIN = [
+    'do something fun',
+    'do something',
+    'do something cool',
+    'speak differently',
+    'different languages',
+    'pig latin'
+  ]
+  kFRIENDS = [
+    'do you want to be my friend',
+    'are you my friend',
+    'be my friend',
+    'you my friend'
+  ]
+  riddles = [
+    'What is taller the younger and shorter the older?',
+    'What is brown and sticky?', 'In a neighboorhood, there was a blue house that was blue, a red house that was red, and a black house that was black. What color was the green house?', 
+    'What gets wetter the more it dries?', 
+    'What can you catch but not throw?', 
+    'What can jump higher than a building?', 
+    'What did the grape do when it got stepped on?',
+    'Where would fish live if they could walk on land',
+    'Where do fish store their money?'
+  ]
+  kRESPONSE = [
+    'yes', 
+    'sure', 
+    'all right', 
+    'no', 
+    'maybe', 
+    'soon', 
+    'tomorrow',
+    'later', 
+    'now', 
+    'never', 
+    'ok'
+  ]
+  kBLAH = [
+    'blah',
+    'sdf',
+    'fgh',
+    'fj'
+  ]
+  answerRiddles = [
+    'candle', 
+    'stick', 
+    'transparent', 
+    'towel', 
+    'cold', 
+    'anything', 
+    'wine', 
+    'finland', 
+    'riverbank'
+  ]
+  responsiveGreetings = [
+    'Hello!', 
+    'Howdy!', 
+    'Hi!'
+  ]
+  kVolunteerJoin = "JC234FD"
+  kVolunteerInput = "JSD432H"
+  if any(ext in _input.lower() for ext in kNAME):
+    a = True
+    printa('Please repeat yourself\n')
+    name = input('What is your name? ')
+    printa('Ok, '+name+'.')
+  if any(ext in _input.lower() for ext in quitWords):
+    a = True
+    printa('Goodbye, I will see you later! (Hopefully)')
+    sys.exit()
+  if kI in _input.lower() and "live" not in _input.lower():
+    a = True
+    i(_input)
+  if any(ext in _input.lower() for ext in kHI):
+    a = True
+    if any(ext in _input.lower() for ext in kHI) and "how do you do" not in _input.lower():
+      printa(random.choice(responsiveGreetings))
+    else:
+      printa('Good, thank you.')
+  if kDO in _input.lower() and "how do you do" not in _input.lower() and "what do you do" not in _input.lower() and "live" not in _input.lower() and "house" not in _input.lower():
+    a = True
+    printa('Yes I do, do you?')
+    getInput()
+    print('Ok.')
+  if any(ext in _input.lower() for ext in kPLAY):
+    a = True
+    printa('Do you want to play Bagels Deduction?\n')
+    #printa('\t1. Bagels Deduction  (Enlarge Screen to Play)\n')
+    #printa('Which one do you want to play? \n')
+    #getGame()
+    if input().lower().startswith('y'):
+      printa('Enlarge screen to play.')
+      playBagelsDeduction()
+  if any(ext in _input.lower() for ext in kCALC):
+    a = True
+    calculate(_input)
+  if _input == "":
+    a = True
+    printa('Cat got your tounge?')
+  if any(ext in _input.lower() for ext in kYNAME):
+    a = True
+    printa('My name is Buddy. My full name is Buddy TheChat Bot.')
+  if any(ext in _input.lower() for ext in kTIME):
+    a = True
+    timezoneTXT = open('timezone.txt', 'r')
+    timezone = timezoneTXT.readline()
+    timezoneTXT.close()
+    prompt, timezone = timezone.split(':')
+    now = datetime.datetime.now(pytz.timezone(timezone.strip()))
+    date = str(now)[5:-16]
+    d = {
+      'month': int(date.split()[0].split('-')[0]) - 1,
+      'day': int(date.split()[0].split('-')[1]),
+      'hour': int(date.split()[1].split(':')[0]),
+      'minute': int(date.split()[1].split(':')[1]),
+    }
+    months = [
+      'January', 
+      'February', 
+      'March', 
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
+    ]
+    date = 'Today is the ' + str(d['day']) + 'th of ' + months[d['month']] + '. The time is ' + str(d['hour']) +':' + str(d['minute']) +'.'
+    printa(date)
+  if any(ext in _input.lower() for ext in kSKILLS) and "how do you do" not in _input.lower():
+    a = True
+    printa('\t\tSkills:', .05)
+    printa('Exit when you say to.', .05)
+    printa('Interact with any input involving you.', .05)
+    printa('Interact with any greetings.', .05)
+    printa('Interact with your name. ("My name is ___").', .05)
+    printa('Interact with any input involving doing something.', .05)
+    printa('Play Bagels Deduction.', .05)
+    printa('Solve math problems.', .05)
+    printa('Tell you the time.', .05)
+    printa('Interact with any input involving what I can do.', .05)
+    printa('\t\tNew:', .05)
+    printa('Tell jokes and riddles.', .05)
+    printa('Be able to calculate the average.', .05)
+    printa('\tAnd a thousand smaller things that are boring and that you should not be excited about.', .05)
+    printa('Settings has been renabled.', .05)
+  if kAVERAGE in _input.lower():
+    a = True
+    average()
+  if any(ext in _input.lower() for ext in kRIDDLES):
+    a = True
+    numRiddle = random.randint(0, len(riddles)-1)
+    riddle = riddles[numRiddle]
+    answer = answerRiddles[numRiddle]
+    printa(riddle)
+    if input('Answer (1 word): ').lower() == answer:
+      printa('Correct!')
+    else:
+      printa('Incorrect. ' +answer+' is the correct answer.')
+  if any(ext in _input.lower() for ext in kTHANKS):
+    a = True
+    printa('It was nothing...')
+  if kSETTINGS in _input.lower():
+    a = True
+    printa('\t\tSettings:')
+    printa('\tOption 1. Typing speed - Sometimes does  not work.')
+    printa('\tOption 2. Text Color')
+    printa('\t\tEnter an option to edit and change the defalut value.')
+    option = input('Option # ')
+    if option == '1':
+      global typeSpeed
+      typeSpeed = float(input('Enter the new typing speed . (Per character, measured in seconds.)'))
+    elif option == '2':
+      colors = {
+        'red': "\u001b[31m",
+        'white': "\033[0;0m",
+        'green': "\033[0;32m",
+        'cyan': "\033[1;36m",
+        'blue': "\033[1;34m",
+        'yellow': "\u001b[33m",
+        'magenta': "\u001b[35m"
+      }
+      Bcolors = {
+        'red': "\u001b[41m",
+        'green': "\u001b[42m",
+        'yellow': "\u001b[43m",
+        'blue': "\u001b[44m",
+        'magenta': "\u001b[45m",
+        'cyan': "\u001b[46m",
+        'white': "\u001b[47m",
+        'black': '\u001b[40m',
+        'reset': '\033[49m'
+      }
+      printa('Enter text color from Colors.txt')
+      textColor = colors[input('Color:').lower()]
+      printa('Enter background color from Colors.txt')
+      bgcolor = Bcolors[input('Color: ').lower()]
+      sys.stdout.write(textColor)
+      sys.stdout.write(bgcolor)
+  if any(ext in _input.lower() for ext in kCREATOR):
+    a = True
+    printa('@fullern000 Is my creator and coder.')
+  if any(ext in _input.lower() for ext in kLOCATION):
+    a = True
+    printa('I live in in the south area of the United Kingdom.')
+  if any(ext in _input.lower() for ext in kOTHER):
+    a = True
+    printa('Really.')
+  if any(ext in _input.lower() for ext in kAGE):
+    a = True
+    printa('I am 1 month old.')
+  if kVolunteerJoin in _input:
+    a = True
+    username = input('Enter replit username: ')
+    volunteerTXT = open('PRIVATE/VOLUN/list.txt', 'a')
+    volunteerTXT.write(username + '\n')
+    volunteerTXT.close()
+    credits = open('Credits.txt', 'a')
+    credits.write('\t' + username)
+    credits.close()
+    printa('Added to the staff. Thank you.')
+    passFile = open('PRIVATE/VOLUN/pass.txt')
+    password = passFile.readline()
+    passFile.close()
+    printa('Password is: ' + password)
+    printa('Make sure you remember or keep it somewhere safe.')
+  if kVolunteerInput in _input:
+    a = True
+    inputPass = input('Enter password: ')
+    passFile = open('PRIVATE/VOLUN/pass.txt')
+    password = passFile.readline()
+    passFile.close()
+    if inputPass == password:
+      volunteerTXT = open('PRIVATE/VOLUN/input.txt', 'a')
+      printa('Enter "!!!DONE", when finished entering new input. Press enter between each different scentence.')
+      scentence = ""
+      while scentence != "!!!DONE":
+        scentence = input()
+        volunteerTXT.write(scentence + '\n')
+      volunteerTXT.close()
+    else:
+      printa(colored('INCORRECT!', 'red'))
+      sys.exit()
+  if any(ext in _input.lower() for ext in kRESPONSE):
+    a = True
+    printa('Alright.')
+  if any(ext in _input.lower() for ext in kLAUGH):
+    a = True
+    printa('Whats so funny?')
+    getInput()
+    printa('Oh yeah, that is funny.')
+  if any(ext in _input.lower() for ext in kBLAH):
+    a = True
+    printa('I do not speak gibberish.')
+  if any(ext in _input.lower() for ext in kFRIENDS):
+    a = True
+    print('Sure. Why not?')
+  if a == False:
+    invalid = open('PRIVATE/INVALID/a.txt', 'a')
+    invalid.write(_input + '\n')
+    invalid.close()
+    printa(random.choice(kRRESPONSE))
+    _input = getInput()
+    if any(ext in _input.lower() for ext in kRESPONSE):
+      printa('Alright.')
+    else: 
+      analyze(_input)
+  
+def i(_input):
+  thingsToSay = ['Really? ', 'Wait a moment. ', "Thats funny. ",'Nice! ', 'Did you know ']
+  lst = list(_input)
+  if '.' in lst:
+    ind = lst.index('.')
+    del lst[ind]
+    _input = ''.join(lst)
+  if '?' in lst:
+    ind = lst.index('?')
+    del lst[ind]
+    _input = ''.join(lst)
+  if '!' in lst:
+    ind = lst.index('!')
+    del lst[ind]
+    _input = ''.join(lst)
+  
+  printa(thingsToSay[random.randint(0, 4)]+ _input + ' too.')
+
+def getGame():
+  gameNums = ['0', '1']
+  game = input('-> ')
+  if game not in gameNums:
+    printa('Please enter a number. 0 to stop.')
+    print('\n\n')
+    getGame()
+  if game == '0':
+    printa("Fine. We won't play.")
+    return False
+  if game == '1':
+    playBagelsDeduction()
+
+def playBagelsDeduction():
+  def digits():
+    wordNums = ['one', 'two', 'three', 'four', 'five'  , 'six', 'seven', 'eight', 'nine', 'ten',   'teen', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', 'hundred', 'thousand', 'million']
+    print('*****BAGELS DEDUCTION***** (A number guessing game.)')
+    print('How many digits?')
+    NUM_DIGITS = input()
+    for i in range(len(wordNums)):
+      if wordNums[i] in NUM_DIGITS:
+        print('Please enter a number in number form, not word form. (5 not five)')
+        digits()
+    if NUM_DIGITS.startswith("-"):
+      print('No negative numbers please.')
+      digits()
+    NUM_DIGITS = int(NUM_DIGITS)
+    if NUM_DIGITS > 10:
+      print('Please enter a number less that 10.')
+      digits()
+    return NUM_DIGITS
+  def guesses():
+    print('How many guesses?')
+    MAX_GUESS = input()
+    MAX_GUESS = int(MAX_GUESS)
+    return MAX_GUESS
+  def getSecretNum():
+    numbers = '1 2 3 4 5 6 7 8 9'.split()
+    random.shuffle(numbers)
+    secretNum = ''
+    for i in range(NUM_DIGITS):
+      secretNum += str(numbers[i])
+    return secretNum
+
+  def getClues(guess, secretNum):
+    if guess == secretNum:
+      print('You got it!')
+      sys.exit()
+      return False
+    clues = []
+    for i in range(len(guess)):
+      if guess[i] == secretNum[i]:
+        clues.append('Fermi')
+      elif guess[i] in secretNum:
+        clues.append('Pico')
+    if len(clues) == 0:
+      return 'Bagels'
+    clues.sort()
+    return ' '.join(clues)
+
+  def isOnlyDigits(num):
+    if num == '':
+      return False
+    for i in num:
+      if not i in '0 1 2 3 4 5 6 7 8 9'.split():
+        print('Only digits.')
+        return False
+      if not i in '1 2 3 4 5 6 7 8 9'.split():
+        print('Cannot start with 0.')
+        return False
+      return True
+
+  while True:
+    NUM_DIGITS = digits()
+    MAX_GUESS = guesses()
+    secretNum = getSecretNum()
+    print('I am thinking of a %s-digit number. Try to guess what it is.' %(NUM_DIGITS))
+    print('When I Say:    That Means:')
+    print('  Bagels        None of the digits is correct.')
+    print('  Pico          One digit is correct but in the wrong position.')
+    print('  Fermi         One digit is correct and in the right position.')
+    print('The clues are in A-B-C order.')
+    print('I have thought up a number. You have %s guesses to get it.' %(MAX_GUESS))
+    print("Type 'QUIT' to quit and find the answer.")
+    guessesTaken = 1
+    while guessesTaken <= MAX_GUESS:
+      guess = ''
+      while len(guess) != NUM_DIGITS or not isOnlyDigits(guess):
+        print('Guess #%s:' %(guessesTaken))
+        guess = input()
+        if len(guess) != NUM_DIGITS:
+          print('Guess a %s-digit number.' %(NUM_DIGITS))
+        if guess == 'QUIT':
+          print('You have quit the game. The answer was %s.' %(secretNum))
+          return False
+        print(getClues(guess, secretNum))
+        guessesTaken += 1
+
+        if guess == secretNum:
+          break
+        if guessesTaken > MAX_GUESS:
+          print('You are out of guesses. The answer was %s.' %(secretNum))
+
+    print('Do you want to play again? (yes or no)')
+    yesorno = input()
+    if not yesorno.lower().startswith('y'):
+      break
+
+def calculate(string):
+  string = string.split()
+  if '+' in string:
+    index = string.index('+')
+    firstnum = int(string[index-1])
+    secondnum = int(string[index+1])
+    printa(str(firstnum+secondnum))
+  if '-' in string:
+    index = string.index('-')
+    firstnum = int(string[index-1])
+    secondnum = int(string[index+1])
+    printa(str(firstnum-secondnum))
+  if 'x' in string:
+    index = string.index('x')
+    firstnum = int(string[index-1])
+    secondnum = int(string[index+1])
+    printa(str(firstnum*secondnum))
+  if '*' in string:
+    index = string.index('*')
+    firstnum = int(string[index-1])
+    secondnum = int(string[index+1])
+    printa(str(firstnum*secondnum))
+  if '/' in string:
+    index = string.index('/')
+    firstnum = int(string[index-1])
+    secondnum = int(string[index+1])
+    printa(str(firstnum/secondnum))
+
+def average():
+  printa('How many numbers are you finding the average of?')
+  numnums = input()
+  nums = []
+  total = 0
+  for i in range(int(numnums)):
+    nums.append(int(input('Enter A Number:')))
+  for z in nums:
+    total += int(z)
+  print('Average: ' +str(total / len(nums)))
+
+
+while True:
+  sayHello()
+  while True:
+    _input = getInput()
+    analyze(_input)
